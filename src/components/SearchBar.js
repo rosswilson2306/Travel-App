@@ -24,8 +24,6 @@ class SearchBar extends Component {
   render() {
     return (
       <div className="search-bar">
-        <img src={logo} alt="trillo logo" className="logo" />
-
         <form action="#" className="search" onSubmit={this.handleSubmit}>
           <input
             type="text"

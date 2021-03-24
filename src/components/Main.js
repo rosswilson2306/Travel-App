@@ -5,6 +5,7 @@ import VenueInfo from './VenueInfo';
 import SearchBar from './SearchBar';
 import FourSquare from './FourSquare';
 import { fourSquareKeys } from '../Keys';
+import OpenWeather from './OpenWeather';
 
 class Main extends Component {
   constructor(props) {
@@ -30,14 +31,17 @@ class Main extends Component {
     const votes = Math.floor(Math.random() * 500);
     this.setState({ ratingVotes: votes });
 
+    OpenWeather.getWeather(inputValue);
+
     // FourSquare
     const endpoint = 'https://api.foursquare.com/v2/venues/explore';
     const version = '20180323';
-    const fourSqUrl = `${endpoint}?client_id=${fourSquareKeys.clientId}&client_secret=${fourSquareKeys.clientSecret}&near=${inputValue}&v=${version}&limit=4`;
+    const fourSqUrl = `${endpoint}?client_id=${fourSquareKeys.clientId}&client_secret=${fourSquareKeys.clientSecret}&near=${inputValue}&v=${version}&limit=6`;
 
     fetch(fourSqUrl)
       .then(response => response.json())
       .then(data => {
+        if (!data) return;
         this.setState({ city: data.response.geocode.where });
         this.setState({ location: data.response.geocode.displayString });
         this.setState({ venues: data.response.groups[0].items });
@@ -54,6 +58,7 @@ class Main extends Component {
           location={this.state.location}
           cityRating={this.state.cityRating}
           ratingVotes={this.state.ratingVotes}
+          weather={this.state.weather}
         />
         <VenueInfo venues={this.state.venues} />
       </main>

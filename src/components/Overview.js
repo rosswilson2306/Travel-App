@@ -14,11 +14,11 @@ class Overview extends Component {
     return (
       <div className="overview">
         <h1 className="overview__heading">
-          {cityName ? cityName : 'Hotel las Palmas'}
+          {cityName ? cityName : 'New York'}
         </h1>
         <div className="overview__location">
           <p className="input-location">
-            {location ? location : 'Albufeira, Portugal'}
+            {location ? location : 'New York, USA'}
           </p>
         </div>
         <div className="overview__rating">

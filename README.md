@@ -14,8 +14,8 @@ This travel app asks a user to search for a city and using Rest APIs, like FourS
 
 ## Launch
 
-Run in the browser. Due to use of API keys (which aren't included in the code) the intended functionality will not work through GitHub Pages. For a working version of the app visit ...
+Run in the browser. Due to use of API keys (which aren't included in the code) the intended functionality will not work through GitHub Pages. For a working version of the app visit ... soon.
 
 ## Status
 
-The building of this website is complete. Responsive changes in progress.
+The building of this app is complete. API changes in progress.
